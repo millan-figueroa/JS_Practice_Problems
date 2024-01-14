@@ -1,3 +1,37 @@
+    Inventory.prototype.addItem = function(item, price) {
+      if(!this.hasOwnProperty(item)){ //if item does not exist in object, add
+          this[item] = { price : price, quantity : 1 }
+        } else { this[item].price = price, this[item].quantity++ }; //else, update quantity
+    }
+  
+    Inventory.prototype.deleteItem = function(item, price) {
+      if((!this.hasOwnProperty(item)) || (this[item].quantity <= 0)){
+        return 'Nothing to delete';
+      } else {
+        this[item].quantity -= 1;
+        return 'Deleted';
+      };
+    }
+  
+    Inventory.prototype.checkItem = function(item, price) {
+      if(!this.hasOwnProperty(item)){
+        return 'Item is not in inventory';
+      } else {
+        return this[item];
+      };
+    }
+
+const myInventory = new Inventory('cucumber', 2);
+
+// Uncomment these lines to check your work!
+myInventory.addItem('carrot', 1);
+console.log(myInventory.checkItem('cucumber')); // Logs: { price: 2, quantity: 1 }
+myInventory.addItem('cucumber', 5); 
+console.log(myInventory.deleteItem('carrot')); // Logs: 'Deleted'
+console.log(myInventory.deleteItem('carrot')); // Logs: 'Nothing to delete'
+console.log(myInventory); // Logs: { cucumber: { price: 3, quantity: 2 }, carrot: { price: 1, quantity: 0 } }
+console.log(myInventory.checkItem('radish')); // Logs: 'Item is not in inventory'
+
 /* In the openStore method, you are overwriting the this.owner property each time a new store is 
 opened. It would be better to store owners in an array or object to keep track of multiple owners 
 for different stores.
@@ -49,18 +83,3 @@ find the index of the city in the this.locations array and remove it.*/
 
 // buenoBell.closeStore('Austin'); // Should log 'Bueno Bell closed the store in Austin.'
 // buenoBell.closeStore('Maui'); // Should log 'Bueno Bell doesn't have a store in Maui.'
-
-
-function multiply(num) {
-    // Base case: If n is 1 or 0, return 1
-    if (num <= 1) {
-      return 1;
-    }
-  
-    // Recursive case: Multiply n with the result of the function for (n-1)
-    return num * multiply(num - 1);
-  }
-  
-  // Example usage:
-//   const result = multiply(3);
-  console.log(multiply(5)); // Output: 120
