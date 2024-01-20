@@ -184,11 +184,28 @@ Construct a function multiMap that will accept two arrays - an array of values a
 
 /*Challenge: majority
 Create a function majority that accepts an array and a callback. The callback will return either true or false. majority will iterate through the array and perform the callback on each element until it can be determined if the majority of the return values from the callback are true. If the number of true returns is equal to the number of false returns, majority should return false. */
+function majority(arr, cb){
 
+    let t = 0;
+    let f = 0; 
+
+    arr.forEach((element) => {
+        if(cb(element)){
+            t++;
+        } else {
+            f++;
+        }
+    })
+
+    if (t <= f) return false;
+    if (t > f) return true;
+
+
+}
 // Uncomment these to check your work!
-// const isOdd = function(num) { return num % 2 === 1; };
-// console.log(majority([1, 2, 3, 4, 5], isOdd)); // should log: true
-// console.log(majority([2, 3, 4, 5], isOdd)); // should log: false
+const isOdd = function(num) { return num % 2 === 1; };
+console.log(majority([1, 2, 3, 4, 5], isOdd)); // should log: true
+console.log(majority([2, 3, 4, 5], isOdd)); // should log: false
 
 /*Challenge: prioritize
 Create a function prioritize that accepts an array and a callback. The callback will return either true or false. prioritize will iterate through the array and perform the callback on each element, and return a new array, where all the elements that yielded a return value of true come first in the array, and the rest of the elements come second. */
