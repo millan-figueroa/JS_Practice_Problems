@@ -1,41 +1,68 @@
+
+
+// //Construct a function union that takes an input array of arrays, compares each array, and returns a new flat array that contains all elements. 
+// //If there are duplicate elements, only add it //once to the new array. Preserve the order of the elements starting from the first element of 
+// //the first input array. BONUS - Use reduce!
+
+// function union(arrays){
+//     let flatArray = [];
+//     for (let arr of arrays){
+//         for (let el of arr){
+//             if (!flatArray.includes(el)){
+//                 flatArray.push(el);
+//             }
+//         }
+//     }
+//     return flatArray;
+// }
+
+// // Uncomment these to check your work!
+// const arr1 = [5, 10, 15];
+// const arr2 = [15, 88, 1, 5, 7];
+// const arr3 = [100, 15, 10, 1, 5];
+// console.log(union([arr1, arr2, arr3])); // should log: [5, 10, 15, 88, 1, 7, 100]
+
+
+
 //COMMON ELEMENTS outside WHILE LOOP
 
 
-// function intersection(arrays) {
+function intersection(arrays) {
 
-//     let arr1 = arrays.shift(); //[5, 10, 15, 20]
-//     console.log(`First value of arr1: ${arr1}`)
-//     let commonElements = [];
+    let arr1 = arrays.shift(); //[5, 10, 15, 20]
+    console.log(`First value of arr1: ${arr1}`)
+    
 
-//     while (arrays.length) { 
-//         console.log('***WHILE LOOP RUN***')
-//         let currentArr = arrays.shift(); 
-//         console.log(`Value of currentArr: ${currentArr}`)
+    while (arrays.length) { 
+        let commonElements = [];
+        console.log('***WHILE LOOP RUN***')
+        let currentArr = arrays.shift(); 
+        console.log(`Value of currentArr: ${currentArr}`)
         
         
-//         for (let i in currentArr) {   
-//             let currentEl = currentArr[i]; 
-//             console.log(`Value of currentEl: ${currentEl}`)
+        for (let i in currentArr) {   
+            let currentEl = currentArr[i]; 
+            console.log(`Value of currentEl: ${currentEl}`)
           
-//             for (let i in arr1) {
-//                 if (arr1[i] === currentEl) {
-//                     commonElements.push(currentEl);
-//                     console.log(`Value of arr1[i]: ${arr1[i]}`)
-//                     console.log(`Value of commonElements: ${commonElements}`)
-//                 }
-//             }
-//         }
+            for (let i in arr1) {
+                if (arr1[i] === currentEl) {
+                    commonElements.push(currentEl);
+                    console.log(`Value of arr1[i]: ${arr1[i]}`)
+                    console.log(`Value of commonElements: ${commonElements}`)
+                }
+            }
+        }
 
-//         // arr1 = commonElements;
-//     }
+        arr1 = commonElements;
+    }
 
-//     return commonElements;
-// }
+    return arr1;
+}
 
-// const arr1 = [5, 10, 15, 20];
-//   const arr2 = [15, 88, 1, 5, 7];
-//   const arr3 = [1, 10, 15, 5, 20];
-//   console.log(intersection([arr1, arr2, arr3]));
+const arr1 = [5, 10, 15, 20];
+  const arr2 = [15, 88, 1, 5, 7];
+  const arr3 = [1, 10, 15, 5, 20];
+  console.log(intersection([arr1, arr2, arr3]));
 
 // // input: array, callback, initial value
 // // output: single value
@@ -95,30 +122,31 @@ arrays consisting of outputs from the array of callbacks, where the input to eac
 -Loops again and apply cb to each element, saving result output as values in resultObj
 -Output: catfood: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
 */
-function multiMap(arr, funcArr) {
-    const resultObj = {};
-    
-    for (let i = 0; i < arr.length; i++){
-        resultObj[arr[i]] = []; //assign object to empty array
 
-        for (let j = 0; j < funcArr.length; j++){
-            let cb = funcArr[j];
-            resultObj[arr[i]].push(cb(arr[i])); //push output of calling cb on each arr item
-        }
-    }
-    return resultObj;
-}
+// function multiMap(arr, funcArr) {
+//     const resultObj = {};
+    
+//     for (let i = 0; i < arr.length; i++){
+//         resultObj[arr[i]] = []; //assign object to empty array
+
+//         for (let j = 0; j < funcArr.length; j++){
+//             let cb = funcArr[j];
+//             resultObj[arr[i]].push(cb(arr[i])); //push output of calling cb on each arr item
+//         }
+//     }
+//     return resultObj;
+
 // ADD CODE HERE
 
 // Uncomment these to check your work!
-function uppercaser(str) { return str.toUpperCase(); }
-function capitalize(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }
-function repeater(str) { return str + str; }
+// function uppercaser(str) { return str.toUpperCase(); }
+// function capitalize(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }
+// function repeater(str) { return str + str; }
 
-const items = ['catfood', 'glue', 'beer'];
-const functions = [uppercaser, capitalize, repeater];
+// const items = ['catfood', 'glue', 'beer'];
+// const functions = [uppercaser, capitalize, repeater];
 
-console.log(multiMap(items, functions)); 
+// console.log(multiMap(items, functions)); 
 // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], 
 //glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
 
@@ -184,28 +212,28 @@ Construct a function multiMap that will accept two arrays - an array of values a
 
 /*Challenge: majority
 Create a function majority that accepts an array and a callback. The callback will return either true or false. majority will iterate through the array and perform the callback on each element until it can be determined if the majority of the return values from the callback are true. If the number of true returns is equal to the number of false returns, majority should return false. */
-function majority(arr, cb){
+// function majority(arr, cb){
 
-    let t = 0;
-    let f = 0; 
+//     let t = 0;
+//     let f = 0; 
 
-    arr.forEach((element) => {
-        if(cb(element)){
-            t++;
-        } else {
-            f++;
-        }
-    })
+//     arr.forEach((element) => {
+//         if(cb(element)){
+//             t++;
+//         } else {
+//             f++;
+//         }
+//     })
 
-    if (t <= f) return false;
-    if (t > f) return true;
+//     if (t <= f) return false;
+//     if (t > f) return true;
 
 
-}
-// Uncomment these to check your work!
-const isOdd = function(num) { return num % 2 === 1; };
-console.log(majority([1, 2, 3, 4, 5], isOdd)); // should log: true
-console.log(majority([2, 3, 4, 5], isOdd)); // should log: false
+// }
+// // Uncomment these to check your work!
+// const isOdd = function(num) { return num % 2 === 1; };
+// console.log(majority([1, 2, 3, 4, 5], isOdd)); // should log: true
+// console.log(majority([2, 3, 4, 5], isOdd)); // should log: false
 
 /*Challenge: prioritize
 Create a function prioritize that accepts an array and a callback. The callback will return either true or false. prioritize will iterate through the array and perform the callback on each element, and return a new array, where all the elements that yielded a return value of true come first in the array, and the rest of the elements come second. */
