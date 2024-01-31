@@ -83,47 +83,7 @@ with the second string (of a saved pair).*/
 // console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); 
 // should log: 'The slow, brown fox jumps over the lazy cats.'
 
-// function makeHistory(limit) {
-//     // create cache
-//     // limit > limit of properties cache can hold  
-//     const cache = {};
-//     cache.length = 0; // set property length equal to 0 in cache
 
-//     return (str) => {
-//         if (cache.length < limit && str !== `undo`) { // cannot accept 'undo' here
-//             // set property and str to cache
-//             cache[cache.length] = str;
-//             // increment length property
-//             cache.length++;
-//             // return action done
-//             return `${cache[cache.length-1]} done`;
-//       }
-//         if (str === `undo`) {
-//                 // if 'undo' passed when cache is empty, return `nothing to undo`
-//             if (!cache.length) return `Nothing to undo`	
-//           // when 'undo' is passed, delete the last el of cache
-//           // save last el of cache before deleting to return later..
-//           let undoAction = cache[cache.length - 1];
-//             delete cache[cache.length - 1];
-//             // decrement length property
-//             cache.length -= 1;
-//             // return undone action
-//             return `${undoAction} undone`;
-//       }
-//         // what if limit exceeded?
-//         if (cache.length >= limit) {
-//             // loop thru el of cache and replace the first value with the next and so on..
-//             for (let i = 0; i < limit; i++) {
-//                 // replace first value with second value in cache
-//                 cache[i] = cache[i + 1];
-//                 // set the last value in cache with passed-in str
-//                 cache[limit - 1] = str;
-//                 // return action done
-//                 return `${cache[limit - 1]} done`
-//           }
-//       }
-//   }
-// }
 
 // // /*** Uncomment these to check your work! ***/
 // const myActions = makeHistory(2);
