@@ -96,4 +96,29 @@ with the second string (of a saved pair).*/
 // console.log(myActions('undo')); // => should log 'code undone'
 // console.log(myActions('undo')); // => should log 'nothing to undo'
 
-console.log('hello')
+/* Create a function saveOutput that accepts a function (that will accept one argument), 
+and a string (that will act as a password). saveOutput will exe the passed-in function, except for when the password string is passed 
+unless password is passed in. When this happens, the returned function will return an object with all 
+previously passed-in arguments as keys, and the corresponding outputs as values*/
+
+function saveOutput(cb, password){
+    const cache = {};
+    
+    return (arg) => {
+
+      if(arg !== password){
+        cache[arg] = cb(arg);
+        return cb(arg);
+    } else {
+        return cache;
+    } 
+    
+        
+    }
+}
+// Uncomment these to check your work!
+const multiplyBy2 = function(num) { return num * 2; };
+const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
+console.log(multBy2AndLog(2)); // should log: 4
+console.log(multBy2AndLog(9)); // should log: 18
+console.log(multBy2AndLog('boo')); // should log: { 2: 4, 9: 18 }
