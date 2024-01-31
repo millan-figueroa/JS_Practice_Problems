@@ -11,37 +11,37 @@ execute callback according to counter
  
 
 
-function after(numTimes, cb){
+// function after(numTimes, cb){
 
-    let counter = 0;
+//     let counter = 0;
 
-    return function(num){
-        counter++;
-       if (counter === numTimes){
-        return cb(num);
-       } else {
-        return undefined;
-       }
-    };
-}
-
-
-function addFour(num){ return num + 4 };
-const afterCalled = after(3, addFour)
+//     return function(num){
+//         counter++;
+//        if (counter === numTimes){
+//         return cb(num);
+//        } else {
+//         return undefined;
+//        }
+//     };
+// }
 
 
-console.log(afterCalled(5)); //undefined
-console.log(afterCalled(5)); //undefined
-console.log(afterCalled(5)); //9
+// function addFour(num){ return num + 4 };
+// const afterCalled = after(3, addFour)
 
-/* Create a function saveOutput that accepts a function (that will accept one argument), and a string (that will act as a password). saveOutput will then return a function that behaves exactly like the passed-in function, except for when the password string is passed in as an argument. When this happens, the returned function will return an object with all previously passed-in arguments as keys, and the corresponding outputs as values*/
 
-// Uncomment these to check your work!
-const multiplyBy2 = function(num) { return num * 2; };
-const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
-console.log(multBy2AndLog(2)); // should log: 4
-console.log(multBy2AndLog(9)); // should log: 18
-console.log(multBy2AndLog('boo')); // should log: { 2: 4, 9: 18 }
+// console.log(afterCalled(5)); //undefined
+// console.log(afterCalled(5)); //undefined
+// console.log(afterCalled(5)); //9
+
+// /* Create a function saveOutput that accepts a function (that will accept one argument), and a string (that will act as a password). saveOutput will then return a function that behaves exactly like the passed-in function, except for when the password string is passed in as an argument. When this happens, the returned function will return an object with all previously passed-in arguments as keys, and the corresponding outputs as values*/
+
+// // Uncomment these to check your work!
+// const multiplyBy2 = function(num) { return num * 2; };
+// const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
+// console.log(multBy2AndLog(2)); // should log: 4
+// console.log(multBy2AndLog(9)); // should log: 18
+// console.log(multBy2AndLog('boo')); // should log: { 2: 4, 9: 18 }
 
 
 /*
@@ -83,3 +83,57 @@ with the second string (of a saved pair).*/
 // console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); 
 // should log: 'The slow, brown fox jumps over the lazy cats.'
 
+// function makeHistory(limit) {
+//     // create cache
+//     // limit > limit of properties cache can hold  
+//     const cache = {};
+//     cache.length = 0; // set property length equal to 0 in cache
+
+//     return (str) => {
+//         if (cache.length < limit && str !== `undo`) { // cannot accept 'undo' here
+//             // set property and str to cache
+//             cache[cache.length] = str;
+//             // increment length property
+//             cache.length++;
+//             // return action done
+//             return `${cache[cache.length-1]} done`;
+//       }
+//         if (str === `undo`) {
+//                 // if 'undo' passed when cache is empty, return `nothing to undo`
+//             if (!cache.length) return `Nothing to undo`	
+//           // when 'undo' is passed, delete the last el of cache
+//           // save last el of cache before deleting to return later..
+//           let undoAction = cache[cache.length - 1];
+//             delete cache[cache.length - 1];
+//             // decrement length property
+//             cache.length -= 1;
+//             // return undone action
+//             return `${undoAction} undone`;
+//       }
+//         // what if limit exceeded?
+//         if (cache.length >= limit) {
+//             // loop thru el of cache and replace the first value with the next and so on..
+//             for (let i = 0; i < limit; i++) {
+//                 // replace first value with second value in cache
+//                 cache[i] = cache[i + 1];
+//                 // set the last value in cache with passed-in str
+//                 cache[limit - 1] = str;
+//                 // return action done
+//                 return `${cache[limit - 1]} done`
+//           }
+//       }
+//   }
+// }
+
+// // /*** Uncomment these to check your work! ***/
+// const myActions = makeHistory(2);
+// console.log(myActions('jump')); // => should log 'jump done'
+// console.log(myActions('undo')); // => should log 'jump undone'
+// console.log(myActions('walk')); // => should log 'walk done'
+// console.log(myActions('code')); // => should log 'code done'
+// console.log(myActions('pose')); // => should log 'pose done'
+// console.log(myActions('undo')); // => should log 'pose undone'
+// console.log(myActions('undo')); // => should log 'code undone'
+// console.log(myActions('undo')); // => should log 'nothing to undo'
+
+console.log('hello')

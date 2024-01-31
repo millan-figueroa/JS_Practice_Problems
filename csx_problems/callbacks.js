@@ -27,42 +27,42 @@
 //COMMON ELEMENTS outside WHILE LOOP
 
 
-function intersection(arrays) {
+// function intersection(arrays) {
 
-    let arr1 = arrays.shift(); //[5, 10, 15, 20]
-    console.log(`First value of arr1: ${arr1}`)
+//     let arr1 = arrays.shift(); //[5, 10, 15, 20]
+//     console.log(`First value of arr1: ${arr1}`)
     
 
-    while (arrays.length) { 
-        let commonElements = [];
-        console.log('***WHILE LOOP RUN***')
-        let currentArr = arrays.shift(); 
-        console.log(`Value of currentArr: ${currentArr}`)
+//     while (arrays.length) { 
+//         let commonElements = [];
+//         console.log('***WHILE LOOP RUN***')
+//         let currentArr = arrays.shift(); 
+//         console.log(`Value of currentArr: ${currentArr}`)
         
         
-        for (let i in currentArr) {   
-            let currentEl = currentArr[i]; 
-            console.log(`Value of currentEl: ${currentEl}`)
+//         for (let i in currentArr) {   
+//             let currentEl = currentArr[i]; 
+//             console.log(`Value of currentEl: ${currentEl}`)
           
-            for (let i in arr1) {
-                if (arr1[i] === currentEl) {
-                    commonElements.push(currentEl);
-                    console.log(`Value of arr1[i]: ${arr1[i]}`)
-                    console.log(`Value of commonElements: ${commonElements}`)
-                }
-            }
-        }
+//             for (let i in arr1) {
+//                 if (arr1[i] === currentEl) {
+//                     commonElements.push(currentEl);
+//                     console.log(`Value of arr1[i]: ${arr1[i]}`)
+//                     console.log(`Value of commonElements: ${commonElements}`)
+//                 }
+//             }
+//         }
 
-        arr1 = commonElements;
-    }
+//         arr1 = commonElements;
+//     }
 
-    return arr1;
-}
+//     return arr1;
+// }
 
-const arr1 = [5, 10, 15, 20];
-  const arr2 = [15, 88, 1, 5, 7];
-  const arr3 = [1, 10, 15, 5, 20];
-  console.log(intersection([arr1, arr2, arr3]));
+// const arr1 = [5, 10, 15, 20];
+//   const arr2 = [15, 88, 1, 5, 7];
+//   const arr3 = [1, 10, 15, 5, 20];
+//   console.log(intersection([arr1, arr2, arr3]));
 
 // // input: array, callback, initial value
 // // output: single value
