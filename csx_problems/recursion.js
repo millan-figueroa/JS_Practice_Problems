@@ -48,13 +48,13 @@ if our base is 2 and our exponent is 3, then return 8 because 2^3 = 2*2*2 = 8.*/
 
 /*Write a function that takes an array of functions and a number that will be piped through all those functions. The input number 
 passes through the first function, whose output is passed as input to the second function, whose output is passed as input to the 
-third function, and so on. Use recursion to return the final output of the last function in the array.*/
+third function, and so on. Use recursion to return the final output of the last function in the array.
 
 function flow(input, funcArray, i = 0, output) {
 
     let cb = funcArray[i];
+
     output = cb(input);
-    console.log(output)
     input = output;
     i++;
     //base case
@@ -64,6 +64,8 @@ function flow(input, funcArray, i = 0, output) {
     return flow(input, funcArray, i, output)
 }
 
+console.log('hi')
+
 // To check if you've completed the challenge, uncomment this code!
 function multiplyBy2(num) { return num * 2; } //4, 4
 function add7(num) { return num + 7; } //9, 11
@@ -72,7 +74,42 @@ function subtract10(num) { return num - 10; } //-8, -7
 const arrayOfFunctions = [multiplyBy2, add7, modulo4, subtract10];
 
 console.log(flow(2, arrayOfFunctions)); // -> -7
+*/
 
+/* Write a function that takes two arrays as inputs, representing the top and bottom halves of a deck of cards, 
+and shuffles them together. The function will return a single array containing the elements from both input 
+arrays interleaved, like so:
+
+the first element should be the first element of the first input array,
+
+the second element should be the first element of the second input array,
+
+the third element should be the second element of the first input array,
+
+the fourth element should be the second element of the second array,
+
+and so on.
+
+The arrays may be of different lengths. After interleaving the elements of the input arrays, any remaining elements should be appended to the end of the array.
+
+function shuffleCards(topHalf, bottomHalf) {
+  // YOUR CODE HERE
+}
+
+
+
+UNCOMMENT TO TEST YOUR WORK
+const topHalf = ['Queen of Diamonds', 'Five of Hearts', 'Ace of Spades', 'Eight of Clubs'];
+const bottomHalf = ['Jack of Hearts', 'Ten of Spades'];
+console.log(shuffleCards(topHalf, bottomHalf));
+ -> ['Queen of Diamonds',
+        'Jack of Hearts',
+        'Five of Hearts',
+        'Ten of Spades',
+        'Ace of Spades',
+        'Eight of Clubs',
+      ]
+  */
 /*Write a function cascade that takes a positive integer and prints a cascade of this integer. Hint - this very challenging 
 problem can be solved with and without string manipulation!
 
