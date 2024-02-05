@@ -53,27 +53,27 @@ the array, and so forth. After returning the last element of the array, the next
 return the first element of the array again, and continue on with the second after that, and so 
 forth.*/
 
-    function cycleIterator(array){
+//     function cycleIterator(array){
         
-        let index = 0;
-        return () => {
-            let result = array[index];
-            index++; 
-            if(index === array.length){
-                index = 0; 
-            } 
-                return result; 
+//         let index = 0;
+//         return () => {
+//             let result = array[index];
+//             index++; 
+//             if(index === array.length){
+//                 index = 0; 
+//             } 
+//                 return result; 
             
-        }
-    }
+//         }
+//     }
 
-// Uncomment these to check your work!
-const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
-const getDay = cycleIterator(threeDayWeekend);
-console.log(getDay()); // should log: 'Fri'
-console.log(getDay()); // should log: 'Sat'
-console.log(getDay()); // should log: 'Sun'
-console.log(getDay()); // should log: 'Fri'
+// // Uncomment these to check your work!
+// const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+// const getDay = cycleIterator(threeDayWeekend);
+// console.log(getDay()); // should log: 'Fri'
+// console.log(getDay()); // should log: 'Sat'
+// console.log(getDay()); // should log: 'Sun'
+// console.log(getDay()); // should log: 'Fri'
 
 /*Challenge: dateStamp
 Create a function dateStamp that accepts a function and returns a function. The returned function 
