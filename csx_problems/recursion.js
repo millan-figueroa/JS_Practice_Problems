@@ -92,24 +92,30 @@ and so on.
 
 The arrays may be of different lengths. After interleaving the elements of the input arrays, any remaining elements should be appended to the end of the array.
 
-function shuffleCards(topHalf, bottomHalf) {
-  // YOUR CODE HERE
+1. Push array[0] to new array, slice first card off each array save to variable, do this inside while loop until there's no more cards
+
+  */
+function shuffleCards(topHalf, bottomHalf, shuffled = []) {
+
+
+    shuffled.push(topHalf[0]);
+//push bottomHalf cards only while there's cards
+    if(bottomHalf.length !== 0) shuffled.push(bottomHalf[0]);
+
+// base case: keep doing it while there's cards in each array
+    if (topHalf.length === 1){
+        return shuffled;
+    } else {
+//  recursive case: keep slicing cards off and pushing to shuffled array
+    return shuffleCards(topHalf = topHalf.slice(1), bottomHalf = bottomHalf.slice(1), shuffled)
+    }   
 }
-
-
-
-UNCOMMENT TO TEST YOUR WORK
+//UNCOMMENT TO TEST YOUR WORK
 const topHalf = ['Queen of Diamonds', 'Five of Hearts', 'Ace of Spades', 'Eight of Clubs'];
 const bottomHalf = ['Jack of Hearts', 'Ten of Spades'];
 console.log(shuffleCards(topHalf, bottomHalf));
- -> ['Queen of Diamonds',
-        'Jack of Hearts',
-        'Five of Hearts',
-        'Ten of Spades',
-        'Ace of Spades',
-        'Eight of Clubs',
-      ]
-  */
+//  -> ['Queen of Diamonds', 'Jack of Hearts', 'Five of Hearts', 'Ten of Spades', 'Ace of Spades', 'Eight of Clubs']
+
 /*Write a function cascade that takes a positive integer and prints a cascade of this integer. Hint - this very challenging 
 problem can be solved with and without string manipulation!
 
