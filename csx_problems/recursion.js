@@ -93,28 +93,35 @@ and so on.
 The arrays may be of different lengths. After interleaving the elements of the input arrays, any remaining elements should be appended to the end of the array.
 
 1. Push array[0] to new array, slice first card off each array save to variable, do this inside while loop until there's no more cards
-
-  */
+*/
+  
 function shuffleCards(topHalf, bottomHalf, shuffled = []) {
+    
 
-
-    shuffled.push(topHalf[0]);
-//push bottomHalf cards only while there's cards
-    if(bottomHalf.length !== 0) shuffled.push(bottomHalf[0]);
+    console.log('                                         ')
+    console.log('**topHalf: ' + topHalf)
+    console.log('**bottomHalf: ' + bottomHalf)    
+    console.log('**shuffled: ' + shuffled)
+    console.log('**topHalf.length: ' + topHalf.length)
+    console.log('**bottomHalf.length: ' + bottomHalf.length)
 
 // base case: keep doing it while there's cards in each array
-    if (topHalf.length === 1){
-        return shuffled;
-    } else {
+    if (!topHalf.length && !bottomHalf[0]) return shuffled;
+    
+    if (topHalf.length !== 0) shuffled.push(topHalf[0]);
+    
+    if (bottomHalf.length !== 0) shuffled.push(bottomHalf[0]);
+    
 //  recursive case: keep slicing cards off and pushing to shuffled array
     return shuffleCards(topHalf = topHalf.slice(1), bottomHalf = bottomHalf.slice(1), shuffled)
-    }   
-}
+    }  
+
 //UNCOMMENT TO TEST YOUR WORK
 const topHalf = ['Queen of Diamonds', 'Five of Hearts', 'Ace of Spades', 'Eight of Clubs'];
 const bottomHalf = ['Jack of Hearts', 'Ten of Spades'];
 console.log(shuffleCards(topHalf, bottomHalf));
 //  -> ['Queen of Diamonds', 'Jack of Hearts', 'Five of Hearts', 'Ten of Spades', 'Ace of Spades', 'Eight of Clubs']
+
 
 /*Write a function cascade that takes a positive integer and prints a cascade of this integer. Hint - this very challenging 
 problem can be solved with and without string manipulation!
@@ -131,28 +138,17 @@ cascade(12345) should print
 1234
 12345
 
-function cascade(num, i = num.toString().length) {
-  if (!Number.isInteger(num) || num <= 0) return;
+-convert num to string
+-split.string into array
+-return multiple indexes
 
-  const strNum = num.toString();
+*/
 
-  if (i === 0) {
-      // Reverse cascade
-      i++;
-      while (i <= strNum.length) {
-          let subNum = strNum.substring(0, i);
-          let toNum = Number(subNum);
-          console.log(toNum);
-          i++;
-      }
-  } else {
+// function cascade(num,) {
+//   num = num.toString();
+//   let numArr = num.split(' ');
+// //   console.log(numArr)
+// return numArr;
+// }
 
-      let subNum = strNum.substring(0, i);
-      let toNum = Number(subNum);
-      
-      console.log(toNum);
-      return cascade(num, i - 1);
-  }
-}
-
-cascade(12345); */
+// console.log(cascade(12345)); 
