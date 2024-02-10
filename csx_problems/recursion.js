@@ -95,31 +95,31 @@ The arrays may be of different lengths. After interleaving the elements of the i
 1. Push array[0] to new array, slice first card off each array save to variable, do this inside while loop until there's no more cards
 */
   
-function shuffleCards(topHalf, bottomHalf, shuffled = []) {
+// function shuffleCards(topHalf, bottomHalf, shuffled = []) {
     
 
-    console.log('                                         ')
-    console.log('**topHalf: ' + topHalf)
-    console.log('**bottomHalf: ' + bottomHalf)    
-    console.log('**shuffled: ' + shuffled)
-    console.log('**topHalf.length: ' + topHalf.length)
-    console.log('**bottomHalf.length: ' + bottomHalf.length)
+//     console.log('                                         ')
+//     console.log('**topHalf: ' + topHalf)
+//     console.log('**bottomHalf: ' + bottomHalf)    
+//     console.log('**shuffled: ' + shuffled)
+//     console.log('**topHalf.length: ' + topHalf.length)
+//     console.log('**bottomHalf.length: ' + bottomHalf.length)
 
-// base case: keep doing it while there's cards in each array
-    if (!topHalf.length && !bottomHalf[0]) return shuffled;
+// // base case: keep doing it while there's cards in each array
+//     if (!topHalf.length && !bottomHalf.length) return shuffled;
     
-    if (topHalf.length !== 0) shuffled.push(topHalf[0]);
+//     if (topHalf.length !== 0) shuffled.push(topHalf[0]);
     
-    if (bottomHalf.length !== 0) shuffled.push(bottomHalf[0]);
+//     if (bottomHalf.length !== 0) shuffled.push(bottomHalf[0]);
     
-//  recursive case: keep slicing cards off and pushing to shuffled array
-    return shuffleCards(topHalf = topHalf.slice(1), bottomHalf = bottomHalf.slice(1), shuffled)
-    }  
+// //  recursive case: keep slicing cards off and pushing to shuffled array
+//     return shuffleCards(topHalf = topHalf.slice(1), bottomHalf = bottomHalf.slice(1), shuffled)
+//     }  
 
-//UNCOMMENT TO TEST YOUR WORK
-const topHalf = ['Queen of Diamonds', 'Five of Hearts', 'Ace of Spades', 'Eight of Clubs'];
-const bottomHalf = ['Jack of Hearts', 'Ten of Spades'];
-console.log(shuffleCards(topHalf, bottomHalf));
+// //UNCOMMENT TO TEST YOUR WORK
+// const topHalf = ['Queen of Diamonds', 'Five of Hearts', 'Ace of Spades', 'Eight of Clubs'];
+// const bottomHalf = ['Jack of Hearts', 'Ten of Spades'];
+// console.log(shuffleCards(topHalf, bottomHalf));
 //  -> ['Queen of Diamonds', 'Jack of Hearts', 'Five of Hearts', 'Ten of Spades', 'Ace of Spades', 'Eight of Clubs']
 
 
@@ -144,11 +144,18 @@ cascade(12345) should print
 
 */
 
-// function cascade(num,) {
-//   num = num.toString();
-//   let numArr = num.split(' ');
-// //   console.log(numArr)
-// return numArr;
-// }
+function cascade(number) {
+	//start at lowest number
+    console.log('recursive case: ' + number);
+    // console.log('above base case: ' + number)
+    if(number.length === 1) {
+        console.log('num: ')
+        return 'number: ' + number;
+    } else {
+        
+    return cascade(num = number.toString().slice(1));
+    
+    }
+}
 
-// console.log(cascade(12345)); 
+console.log(cascade(12345)); 
