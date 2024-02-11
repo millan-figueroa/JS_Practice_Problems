@@ -235,5 +235,12 @@ function intersection(arrays) {
 
         
 
-
+// cascade problem w recursion!
+function cascade(number) {
+  if (!Number.isInteger(number) || number === 0) return;
+  console.log(number);
+  if(number < 10) return;
+  cascade(Math.floor(number / 10));
+  console.log(number);
+}
 

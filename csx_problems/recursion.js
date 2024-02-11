@@ -145,17 +145,27 @@ cascade(12345) should print
 */
 
 function cascade(number) {
-	//start at lowest number
-    console.log('recursive case: ' + number);
-    // console.log('above base case: ' + number)
-    if(number.length === 1) {
-        console.log('num: ')
-        return 'number: ' + number;
-    } else {
-        
-    return cascade(num = number.toString().slice(1));
+    //Check if input is a positive integer
+      if(!Number.isInteger(number) || number === 0) return undefined;
     
-    }
-}
+      //Convert to string to slice, wrap in parseInt before outputting to turn back into number
+      let num = number.toString();
+      console.log(parseInt(num));
+  
+      //recursive case - length must be greater than 1
+      if(num.length > 1) {
+        cascade(parseInt(num.slice(0, -1)));
+        console.log(parseInt(num));
+      }
+  }
 
-console.log(cascade(12345)); 
+cascade(12345); 
+
+// let nums = 12345;
+// // let splitnum = nums.toString().split('');
+// // console.log(splitnum);
+// // console.log(nums)
+// // console.log(splitnum[0] + splitnum[1])
+
+// let slicednum = nums.toString().slice(1);
+// console.log(slicednum)
