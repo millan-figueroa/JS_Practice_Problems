@@ -1,15 +1,7 @@
 
-/* Countdown
-Write a recursive function countdown that accepts a positive integer n as an input and logs every 
-number from n (inclusive) to 0 (exclusive) to the console.
-
-function countdown(n) {
-    console.log(n);
-    if(n === 2) return 1;
-    
-    return countdown(n-1)
-}
-
+/* Countdown (2/13 - 4:50)
+Write a recursive function countdown that accepts a positive integer n as an input 
+and logs every number from n (inclusive) to 0 (exclusive) to the console.
 
 // To check if you've completed it, uncomment these console.logs!
 console.log(countdown(5));
@@ -17,78 +9,49 @@ console.log(countdown(10));
 */
 
 
-/* Sum (5min 30secs)
+/* Sum (2/12 - 5min 30secs, 2/13 - 8:52)
 Write a recursive function sum that calculates the sum of an array of integers.
--iterate recursively through array by incrementing index
--base case is when array[index] returns undefined
--return sum
-function sum(array, total = 0, i = 0) {
-    total += array[i];
-    i++;
-    if(array[i] === undefined) return total;
-    return sum(array, total, i)
-}
 
 // uncomment these to check your work
  console.log(sum([1,1,1])); // -> returns 3
  console.log(sum([1,2,3,4,5,6])); // -> returns 21
 */
 
-/* Palindrome (20 mins)
+/* Palindrome (2/12 - 1 hour, 2/13 - 9:33  )
 Write a recursive function palindrome that accepts a string as an input and returns true if that 
 string is a palindrome (the string is the same forward and backwards). The input string may have 
 punctuation and symbols, but that should not affect whether the string is a palindrome.
-//string.tolowercase and remove special characters
-//if arr.length === 1 or 2 return true; else
-//if 1st and last elements dont match return false
-//iterate recursively compare first and last elements use slice to remove els
-//return function with first and last elements removed*/
+
+console.log(palindrome("Anne, I vote more cars race Rome-to-Vienna")); //-> true
+console.log(palindrome("llama mall")); //-> true
+console.log(palindrome("jmoney")); //-> false
+*/
 
 
-// function palindrome(string) {
-//     const re = /[\W_]/g;
-//     const str = string.toLowerCase().replace(re, '');
-
-//     if(str.length === 1 || str.length === 2) return true;
-//     if(str[0] !== str[str.length - 1]){
-//         return false;
-//     } else {
-//         return palindrome(str.slice(1, -1))
-//     }
-// }
-
-// console.log(palindrome("Anne, I vote more cars race Rome-to-Vienna")); //-> true
-// console.log(palindrome("llama mall")); //-> true
-// console.log(palindrome("jmoney")); //-> false
-
-
-
-/* isPrime
+/* isPrime (2/12 - 1 hour, 2/13 - 41:51)
 Write a recursive function isPrime that determines if a number is prime and returns true if 
 it is.
-//base case:if num is <= 2 return true;
-//num % i === 0 return false;
-//return function decrementing num to test again
-
-
-
-function isPrime(num, i = 2) {
-    if (num <= 1) return false; //is num bigger than 1
-    if (i === num) //once i = num (num % num === 0) return true 
-        return true;
-    
-    if (num % i === 0){ 
-        return false;
-    } else {
-        return isPrime(num, i + 1)
-    } 
-}
-
-console.log(isPrime(7)); //-> false
-console.log(isPrime(10)); //-> true
-console.log(isPrime(11)); //-> true
-console.log(isPrime(13)); //-> false
+-prime has only 2 factors, itself and 1
+-if num is 1 or less, return false immediately
+-use index to recursively check number, incrementing index by 1. Since prime number can be devided by 
+itself, start index at 2.
+-base case = if index === number - 1, return
 */
+
+function isPrime(num, i = 2){
+    if (num <= 1) return false;
+    if (i > Math.sqrt(num) || num === i) return true;
+    
+    
+    if (num % i === 0) return false;
+    
+    return isPrime(num, i + 1)
+}
+console.log(isPrime(12)); 
+console.log(isPrime(13)); 
+console.log(isPrime(11)); 
+console.log(isPrime(14)); 
+
 
 /* pathFinder
 Write a recursive function pathFinder that takes an object and array as inputs and returns the value with the given path.
