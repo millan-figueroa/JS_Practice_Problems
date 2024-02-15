@@ -1,6 +1,6 @@
 
 /* Countdown (2/13 - 4:50)
-Write a recursive function countdown that accepts a positive integer n as an input 
+Create a recursive function countdown that accepts a positive integer n as an input 
 and logs every number from n (inclusive) to 0 (exclusive) to the console.
 
 // To check if you've completed it, uncomment these console.logs!
@@ -10,7 +10,7 @@ console.log(countdown(10));
 
 
 /* Sum (2/12 - 5min 30secs, 2/13 - 8:52)
-Write a recursive function sum that calculates the sum of an array of integers.
+Create a recursive function sum that calculates the sum of an array of integers.
 
 // uncomment these to check your work
  console.log(sum([1,1,1])); // -> returns 3
@@ -18,7 +18,7 @@ Write a recursive function sum that calculates the sum of an array of integers.
 */
 
 /* Palindrome (2/12 - 1 hour, 2/13 - 9:33  )
-Write a recursive function palindrome that accepts a string as an input and returns true if that 
+Create a recursive function palindrome that accepts a string as an input and returns true if that 
 string is a palindrome (the string is the same forward and backwards). The input string may have 
 punctuation and symbols, but that should not affect whether the string is a palindrome.
 
@@ -29,38 +29,45 @@ console.log(palindrome("jmoney")); //-> false
 
 
 /* isPrime (2/12 - 1 hour, 2/13 - 41:51)
-Write a recursive function isPrime that determines if a number is prime and returns true if 
+Create a recursive function isPrime that determines if a number is prime and returns true if 
 it is.
--prime has only 2 factors, itself and 1
--if num is 1 or less, return false immediately
--use index to recursively check number, incrementing index by 1. Since prime number can be devided by 
-itself, start index at 2.
--base case = if index === number - 1, return
-*/
-
-function isPrime(num, i = 2){
-    if (num <= 1) return false;
-    if (i > Math.sqrt(num) || num === i) return true;
-    
-    
-    if (num % i === 0) return false;
-    
-    return isPrime(num, i + 1)
-}
 console.log(isPrime(12)); 
 console.log(isPrime(13)); 
 console.log(isPrime(11)); 
 console.log(isPrime(14)); 
-
+*/
 
 /* pathFinder
-Write a recursive function pathFinder that takes an object and array as inputs and returns the value with the given path.
-const obj = {first:{second:{third:"finish"}}, second:{third:"wrong"}};
-const arr = ["first","second","third"];
-pathFinder(obj,arr);   //-> "finish"*/
+Create a recursive function pathFinder that takes an object and array as inputs and returns the 
+value with the given path.
+
+//Path refers to sequence of keys used to iterate through object to reach a value
+//Keys are 'first', 'second', and 'third'
+//Use each key to find match in object so basecase is when theres no more els in array
+//Recursively go from first to second to third key and compare against object entries
+//If key exists, return function to keep traversing until obj is returned, else return undefined
+*/
+function pathFinder(obj, arr){
+  
+  if(arr.length === 0) return obj;
+
+  const key = arr.shift();
+  
+  if(key in obj){
+    return pathFinder(obj[key], arr)
+
+  } else {
+    return undefined;
+  }
+
+}
+
+const obj = { first: { second: { third: "finish" } }, second: { third: "wrong" } };
+const arr = ["first", "second", "third"];
+console.log(pathFinder(obj, arr));   //-> "finish"
 
 /* flattenRecursively
-Write a recursive function flattenRecursively that flattens a nested array. Your function should be able to handle varying levels of nesting.
+Create a recursive function flattenRecursively that flattens a nested array. Your function should be able to handle varying levels of nesting.
 function flattenRecursively(arr) {
 
 }
@@ -70,7 +77,7 @@ function flattenRecursively(arr) {
 */
 
 /* findInOrderedSet
-Write a recursive function findInOrderedSet that determines if a number is in an ordered array. Assume the array is sorted. BONUS: Write the function in such a way that fully iterating through the array to check isn't necessary.
+Create a recursive function findInOrderedSet that determines if a number is in an ordered array. Assume the array is sorted. BONUS: Create the function in such a way that fully iterating through the array to check isn't necessary.
 
 function findInOrderedSet(arr, target) {
 
@@ -82,7 +89,7 @@ function findInOrderedSet(arr, target) {
 
 
 /* countWaysToReachNthStair
-There are n stairs. A person standing at the bottom wants to reach the top. The person can climb either 1 or 2 stairs at a time. Write a function countWaysToReachNthStair to count the number of ways the person can reach the top (order does matter). See test cases for examples.
+There are n stairs. A person standing at the bottom wants to reach the top. The person can climb either 1 or 2 stairs at a time. Create a function countWaysToReachNthStair to count the number of ways the person can reach the top (order does matter). See test cases for examples.
 function countWaysToReachNthStair(n) {
 
 }
@@ -94,7 +101,7 @@ function countWaysToReachNthStair(n) {
 
 
 /* getPermutations
-Given a collection of distinct integers, write a function getPermutations to return all possible permutations.
+Given a collection of distinct integers, Create a function getPermutations to return all possible permutations.
 Input:[1, 2, 3]
 Output:[
   [1,2,3],
@@ -113,7 +120,7 @@ function getPermutations(arr) {
 */
 
 /* getRangeBetween
-Write a function getRangeBetween that returns an array of all integers between values x and y, not including x and y.
+Create a function getRangeBetween that returns an array of all integers between values x and y, not including x and y.
 function getRangeBetween(x, y) {
 
 }
