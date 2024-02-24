@@ -41,55 +41,33 @@ console.log(isPrime(14));
 Create a recursive function pathFinder that takes an object and array as inputs and returns the 
 value with the given path.
 
-//Path refers to sequence of keys used to iterate through object to reach a value
-//Keys are 'first', 'second', and 'third'
-//Use each key to find match in object so basecase is when theres no more els in array
-//Recursively go from first to second to third key and compare against object entries
-//If key exists, return function to keep traversing until obj is returned, else return undefined
-*/
-function pathFinder(obj, arr){
-  
-  if(arr.length === 0) return obj;
-
-  const key = arr.shift();
-  
-  if(key in obj){
-    return pathFinder(obj[key], arr)
-
-  } else {
-    return undefined;
-  }
-
-}
-
 const obj = { first: { second: { third: "finish" } }, second: { third: "wrong" } };
 const arr = ["first", "second", "third"];
 console.log(pathFinder(obj, arr));   //-> "finish"
+*/
 
 /* flattenRecursively
-Create a recursive function flattenRecursively that flattens a nested array. Your function should be able to handle varying levels of nesting.
-function flattenRecursively(arr) {
+Create a recursive function flattenRecursively that flattens a nested array. Your function should be 
+able to handle varying levels of nesting.
 
-}
-
-// console.log(flattenRecursively([1, [2, 3, [4]]])); //-> [1, 2, 3, 4]
-// console.log(flattenRecursively([1, {}, [3, [[4]]]])); //-> [1, {}, 3, 4]
+console.log(flattenRecursively([1, [2, 3, [4]]])); //-> [1, 2, 3, 4]
+console.log(flattenRecursively([1, {}, [3, [[4]]]])); //-> [1, {}, 3, 4]
 */
 
 /* findInOrderedSet
-Create a recursive function findInOrderedSet that determines if a number is in an ordered array. Assume the array is sorted. BONUS: Create the function in such a way that fully iterating through the array to check isn't necessary.
+Create a recursive function findInOrderedSet that determines if a number is in an 
+ordered array. Assume the array is sorted. BONUS: Create the function in such a 
+way that fully iterating through the array to check isn't necessary.
 
-function findInOrderedSet(arr, target) {
-
-}
-
-// const nums = [1, 4, 6, 7, 9, 17, 45];
-// console.log(findInOrderedSet(nums, 4));  //-> true
-// console.log(findInOrderedSet(nums, 2));  //-> false*/
-
+*/
 
 /* countWaysToReachNthStair
-There are n stairs. A person standing at the bottom wants to reach the top. The person can climb either 1 or 2 stairs at a time. Create a function countWaysToReachNthStair to count the number of ways the person can reach the top (order does matter). See test cases for examples.
+There are n stairs. A person standing at the bottom wants to reach the top. The person can climb 
+either 1 or 2 stairs at a time. Create a function countWaysToReachNthStair to count the number of 
+ways the person can reach the top (order does matter). See test cases for examples.
+
+
+*/
 function countWaysToReachNthStair(n) {
 
 }
@@ -97,7 +75,7 @@ function countWaysToReachNthStair(n) {
 // console.log(countWaysToReachNthStair(1)) //-> 1 (only one way to climb 1 stair)
 // console.log(countWaysToReachNthStair(2)) //-> 2 ((1, 1), (2))
 // console.log(countWaysToReachNthStair(4)) //-> 5 ((1, 1, 1, 1), (1, 1, 2), (2, 1, 1), (2, 2))
-*/
+
 
 
 /* getPermutations

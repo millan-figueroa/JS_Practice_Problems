@@ -161,11 +161,3 @@ function cascade(number) {
 
 cascade(12345); 
 
-// let nums = 12345;
-// // let splitnum = nums.toString().split('');
-// // console.log(splitnum);
-// // console.log(nums)
-// // console.log(splitnum[0] + splitnum[1])
-
-// let slicednum = nums.toString().slice(1);
-// console.log(slicednum)

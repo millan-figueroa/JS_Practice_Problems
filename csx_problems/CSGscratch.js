@@ -138,7 +138,4 @@ console.log(specialReverse("peter piper picked pickled peppers", "p"));
   
   
   
-  
-  
-  
-  
+ 
