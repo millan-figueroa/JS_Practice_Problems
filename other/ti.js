@@ -63,7 +63,12 @@ calls. Once complete, make sure to test your function.
 
 //Q5 Create a function "sumAllElements" that takes in two arguments (an array of numbers and a initial value). "sumAllElements" will return the sum of the elements in the array starting at the initial value.
 
+//Q6 Make a function that produces an object with numbers that have ordered values and removes duplicates with a length item
 
+// Also create a prototype that adds properties 
+// And one that removes object properties
 
-
+// For example:
+// Input 10,20,20,30,40
+// Output {1:10,2:20,3:30,4:40 length: 4}
 
