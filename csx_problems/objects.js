@@ -11,7 +11,7 @@ The method checkItem should take a string as an argument and check to see whethe
 
  */
 
-const myInventory = new Inventory('cucumber', 2);
+// const myInventory = new Inventory('cucumber', 2);
 
 // Uncomment these lines to check your work!
 // myInventory.addItem('carrot', 1);
