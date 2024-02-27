@@ -12,8 +12,7 @@ function deepObject(obj, depth) {
         }
     }
   }
-  
-  
+    
   const obj = {
       a: 'depth 1 - key a',
       b: 'depth 1 - key b',

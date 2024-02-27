@@ -27,31 +27,28 @@ a constructor
 when a new citizen is created, it needs to automatically assign a random age (between 0 to 100)
 Make sure your code meet all the requirements above and not only rely on the test case to make sure your code is complete.As in real life, test cases do not capture all cases and on this particular challenge, we'll intentionally not add all test cases, so that you're still reviewing your code and checking all scenarios.
 
-Enjoy! Please note that this is not an easy challenge and may take you some time but it is a good practice to get really familiar with OOP and prep for technical interviews.
 */
 
 class World {
-    total_cities(){ // returns total number of cities in this world
-        constructor(num){
+    constructor(num){
             this.num; // number of cities to create
             this.cities = []; //array containing all city objects
-        }
+    }
         
     add_city(cityName){ // pass city name and adds to list
             this.cities.push(cityName)
-        };
+    };
         
     random_city(){ // pulls out random city object
-        }
+    }
         
     total_cities(){ // returns total number of cities in this world
-        }
     }
-    
 }
     
-class City {
+
     
+class City {
     constructor(name){ // constructs new city w given name, or creates random city name (5 char long, lowercase) if not given
         this.citizens = [] // array containing citizen objects
     }
