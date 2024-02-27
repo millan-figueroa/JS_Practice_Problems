@@ -1,21 +1,35 @@
 
-/* Countdown (2/13 - 4:50)
+/* Countdown (2/13 - 4:50 | 2/27 - 1:43 |)
 Create a recursive function countdown that accepts a positive integer n as an input 
 and logs every number from n (inclusive) to 0 (exclusive) to the console.
-
-// To check if you've completed it, uncomment these console.logs!
-console.log(countdown(5));
-console.log(countdown(10));
 */
 
+// To check if you've completed it, uncomment these console.logs!
+// console.log(countdown(5));
+// console.log(countdown(10));
 
-/* Sum (2/12 - 5min 30secs, 2/13 - 8:52)
+
+
+/* Sum (2/12 - 5min 30secs | 2/13 - 8:52 | 2/27 - 5:34)
 Create a recursive function sum that calculates the sum of an array of integers.
+ - iterate through array recursively adding the next index
+ - keep track of sum in variable
+ - base case - when index = undefined return sum
 
+*/
+
+function sum(arr, index = 0, acc = 0){
+    if(!Array.isArray(arr)) return undefined;
+    if(arr[index] === undefined) return acc;
+    acc += arr[index]; 
+    return sum(arr, index + 1, acc)
+  
+}
 // uncomment these to check your work
  console.log(sum([1,1,1])); // -> returns 3
  console.log(sum([1,2,3,4,5,6])); // -> returns 21
-*/
+ console.log(sum([0,1,0,0]))
+
 
 /* Palindrome (2/12 - 1 hour, 2/13 - 9:33  )
 Create a recursive function palindrome that accepts a string as an input and returns true if that 
@@ -65,12 +79,12 @@ way that fully iterating through the array to check isn't necessary.
 There are n stairs. A person standing at the bottom wants to reach the top. The person can climb 
 either 1 or 2 stairs at a time. Create a function countWaysToReachNthStair to count the number of 
 ways the person can reach the top (order does matter). See test cases for examples.
-
-
-*/
 function countWaysToReachNthStair(n) {
 
 }
+
+*/
+
 
 // console.log(countWaysToReachNthStair(1)) //-> 1 (only one way to climb 1 stair)
 // console.log(countWaysToReachNthStair(2)) //-> 2 ((1, 1), (2))

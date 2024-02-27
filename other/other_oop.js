@@ -40,6 +40,7 @@ class World {
     };
         
     random_city(){ // pulls out random city object
+        Math.floor
     }
         
     total_cities(){ // returns total number of cities in this world
