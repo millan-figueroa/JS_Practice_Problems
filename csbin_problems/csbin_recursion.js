@@ -12,34 +12,19 @@ and logs every number from n (inclusive) to 0 (exclusive) to the console.
 
 /* Sum (2/12 - 5min 30secs | 2/13 - 8:52 | 2/27 - 5:34)
 Create a recursive function sum that calculates the sum of an array of integers.
- - iterate through array recursively adding the next index
- - keep track of sum in variable
- - base case - when index = undefined return sum
 
 */
-
-function sum(arr, index = 0, acc = 0){
-    if(!Array.isArray(arr)) return undefined;
-    if(arr[index] === undefined) return acc;
-    acc += arr[index]; 
-    return sum(arr, index + 1, acc)
-  
-}
-// uncomment these to check your work
- console.log(sum([1,1,1])); // -> returns 3
- console.log(sum([1,2,3,4,5,6])); // -> returns 21
- console.log(sum([0,1,0,0]))
 
 
 /* Palindrome (2/12 - 1 hour, 2/13 - 9:33  )
 Create a recursive function palindrome that accepts a string as an input and returns true if that 
 string is a palindrome (the string is the same forward and backwards). The input string may have 
 punctuation and symbols, but that should not affect whether the string is a palindrome.
-
+*/
 console.log(palindrome("Anne, I vote more cars race Rome-to-Vienna")); //-> true
 console.log(palindrome("llama mall")); //-> true
 console.log(palindrome("jmoney")); //-> false
-*/
+
 
 
 /* isPrime (2/12 - 1 hour, 2/13 - 41:51)
