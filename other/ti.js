@@ -72,3 +72,19 @@ calls. Once complete, make sure to test your function.
 // Input 10,20,20,30,40
 // Output {1:10,2:20,3:30,4:40 length: 4}
 
+function flattenRecursively(arr) {
+    let flattenedArray = [];
+
+    arr.forEach(element => {
+        if (Array.isArray(element)) {
+            flattenedArray = flattenedArray.concat(flattenRecursively(element));
+        } else {
+            flattenedArray.push(element);
+        }
+    });
+
+    return flattenedArray;
+}
+
+console.log(flattenRecursively([1, [2, 3, [4]]])); //-> [1, 2, 3, 4]
+console.log(flattenRecursively([1, {}, [3, [[4]]]])); //-> [1, {}, 3, 4]
