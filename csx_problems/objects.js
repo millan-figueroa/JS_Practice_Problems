@@ -39,12 +39,12 @@ The second method, performTrick, should also take a string as an argument. It sh
 if that string is in the tricks array belonging to the Dog instance it was called on; if so, it 
 should log the string 'name performed trick!' If not, log the string 'name doesn't know that trick.*/
 
-function Dog(name, breed) {
-	// add code here
+// function Dog(name, breed) {
+// 	// add code here
 
-}
+// }
 
-const fido = new Dog('Fido', 'poodle');
+// const fido = new Dog('Fido', 'poodle');
 
 // Uncomment these lines to check your work!
 // fido.learnTrick('fetch');
@@ -56,14 +56,14 @@ const fido = new Dog('Fido', 'poodle');
 Create a function PersonConstructor that uses the this keyword to save a single property onto its 
 scope called greet. greet should be a function that logs the string "hello". */
 
-function PersonConstructor() {
-	this.greet = function(){console.log('hello')}
-}
+// function PersonConstructor() {
+// 	this.greet = function(){console.log('hello')}
+// }
 
-const simon = new PersonConstructor();
+// const simon = new PersonConstructor();
 
-// Uncomment this line to check your work!
-simon.greet(); // -> Logs 'hello'
+// // Uncomment this line to check your work!
+// simon.greet(); // -> Logs 'hello'
 
 /*: personFromConstructor
 Create a function personFromConstructor that takes as input a name and an age. When called, the 
