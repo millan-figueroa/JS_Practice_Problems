@@ -133,3 +133,45 @@ console.log(numbers); // Output: [1, 2, 3, 4, 5, 6, length: 6, sum: 21]
 
 numbers.removeProperty('sum');
 console.log(numbers); // Output: [1, 2, 3, 4, 5, 6, length: 6]
+
+var createCounter = function(init) {
+  let counter = init;
+  return {
+
+      increment(){
+          return counter+= 1;
+      },
+      decrement(){
+          return counter-= 1;
+      },
+      reset(){
+          
+          return counter = 0;
+      }
+  }
+};
+
+const counter = createCounter(5);
+console.log(counter.increment())
+//console.log(counter.increment())
+//console.log(counter.decrement())
+console.log(counter.reset())
+console.log(counter.decrement())
+
+/*Input
+0
+["increment","increment","decrement","reset","reset"]
+Output
+[1,1,-1,0,0]
+Expected
+[1,2,1,0,0]
+
+Input
+5
+["increment","reset","decrement"]
+Stdout
+4
+Output
+[6,5,4]
+Expected
+[6,5,4]*/
