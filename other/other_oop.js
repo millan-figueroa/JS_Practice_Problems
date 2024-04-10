@@ -152,14 +152,18 @@ console.log(world)
 // console.log(citizen1)
 */
 
-/* Declare a function 'Queue', which takes in no arguments and returns an instance of a 'Queue' object when invoked with the 'new' 
-keyword. 'Queue' objects should function similarly to an Array - i.e., they will store values at numbered indexes, starting at 0.
-All Queue objects should contain their own 'length' property, which keeps track of the number of items they contain. When a Queue 
-is first created, it should have a length of 0. */
+/* Declare a function 'Queue', which takes in no arguments and returns an instance of a 'Queue' 
+object when invoked with the 'new' keyword. 'Queue' objects should function similarly to an 
+Array - i.e., they will store values at numbered indexes, starting at 0. All Queue objects 
+should contain their own 'length' property, which keeps track of the number of 
+items they contain. When a Queue is first created, it should have a length of 0. Declare a function, 'push', which is accessible to ALL instances of 'Queue'. 'push' should take in a single argument, and when 
+invoked on a Queue instance, should add the argument to the end of that particular Queue (i.e. at the highest index), 
+increment the Queue's length property, and return the new length. */
+
 
 /* Declare a function, 'push', which is accessible to ALL instances of 'Queue'. 'push' should take in a single argument, and when 
-invoked on a Queue instance, should add the argument to the end of that particular Queue (i.e. at the highest index), increment 
-the Queue's length property, and return the new length.*/
+invoked on a Queue instance, should add the argument to the end of that particular Queue (i.e. at the highest index), 
+increment the Queue's length property, and return the new length.*/
 
 /*
 Declare a function, 'Collection', which takes in an array as an argument and returns an instance of 
@@ -238,62 +242,70 @@ properties ('whiteBalls' and 'powerBall') with all numbers represented under 2-d
 tickets sold properly and return it.*/
 
 //whiteBalls & powerBall = [5 nums]
-Lottery.prototype.tryLuck = function (whiteBalls, powerBall){
-
-  //validate nums in whiteBalls array only numbers from 1 to 69 are allowed
-   //validate nums in powerBall array only numbers from 1 to 26 are allowed
-   //If any invalid numbers occur, return an error message.
- 
-  this.validatedNums = {};
+Lottery.prototype.tryLuck = function (whiteBalls, powerBall) {
+  this.validatedNums = {
+    whiteBalls: [],
+    powerBall: ''
+  };
 
   whiteBalls.forEach((element) => {
-    if(element < 1 && element > 69) {
-      throw new Error('Number must be between 1 - 69, beotch.');
-      } else {
-        this.validatedNums.whiteBalls = element.toString();
-        this.ticketSold++;
-      }
-    });
+    if(element >= 1 && element <= 69) {
+      this.validatedNums.whiteBalls.push(element.toString().padStart(2, '0'));
+      this.ticketSold++;
+    } else {
+      throw new Error('Numbers must be between 1 - 69.');
+    }
+  });
 
   powerBall.forEach((element) => {
-    if(element < 1 && element > 26) {
-      throw new Error('Number must be between 1 - 26, beotch.');
-      } else {
-        this.validatedNums.powerBall = element.toString();
-        this.ticketSold;
-
-      }
-    });
-
-    return this.validatedNums;
+    if(element >= 1 && element <= 26) {
+      this.validatedNums.powerBall = element.toString().padStart(2, '0');
+      this.ticketSold++;
+    } else {
+      throw new Error('Numbers must be between 1 - 26.');
+    }
+  });
+  return this.validatedNums;
 }
-
-console.log(lottery1)
-console.log(lottery1.tryLuck([3, 85, 7, 8, 5], [2, 76, 7, 8, 5] ))
-console.log(lottery1)
+// console.log(lottery1.tryLuck([3, 25, 7, 12, 52], [2, 22, 7, 4, 5] )) //
+// console.log(lottery1)
 /*
-- Task 2: Declare a function 'quickPlay', which is accessible to ALL instances of 'Lottery'. 'quickPlay' should take in no arguments, and when invoked on a Lottery instance, should function similarly to the 'tryLuck' method by randomly generating an array of five numbers as a 'whiteBalls' array and another number as a 'powerBall'. Add the 'whiteBalls' array and 'powerBall' number to the instance under an object with corresponding keys, update the number of tickets sold properly and return it.*/
+- Task 2: Declare a function 'quickPlay', which is accessible to ALL instances of 'Lottery'. 'quickPlay' should 
+take in no arguments, and when invoked on a Lottery instance, should function similarly to the 'tryLuck' method 
+by randomly generating an array of five numbers as a 'whiteBalls' array and another number as a 'powerBall'. Add 
+the 'whiteBalls' array and 'powerBall' number to the instance under an object with corresponding keys, update the 
+number of tickets sold properly and return it.*/
 
 /*
-- Task 3: Declare a function 'luckyDraw', which is accessible to ALL instances of 'Lottery'. 'luckyDraw' should take in no arguments, and when invoked on a Lottery instance should randomly generate a 'whiteBalls' array and a 'powerBall' number, and return an array of strings (2-digit version of each number) with the length of six, in which the first five numbers are from the 'whiteBalls' array and the last one is the 'powerBall' number.*/
+- Task 3: Declare a function 'luckyDraw', which is accessible to ALL instances of 'Lottery'. 'luckyDraw' should 
+take in no arguments, and when invoked on a Lottery instance should randomly generate a 'whiteBalls' array and a 
+'powerBall' number, and return an array of strings (2-digit version of each number) with the length of six, in 
+which the first five numbers are from the 'whiteBalls' array and the last one is the 'powerBall' number.*/
 
 /*
-- Task 4: Declare a function 'match', which is accessible to ALL instances of 'Lottery'. 'match' should take in no arguments, and when invoked on a Lottery instance, should check if anyone wins this draw by the following rules:
+- Task 4: Declare a function 'match', which is accessible to ALL instances of 'Lottery'. 'match' should take in no 
+arguments, and when invoked on a Lottery instance, should check if anyone wins this draw by the following rules:
 • powerball + 5 whiteballs                   => Grand Prize
 • 5 whiteballs                               => 2nd Prize
 • powerball + 4 whiteballs                   => 3rd Prize
 • powerball + 3 whiteballs OR 4 whiteballs   => 4th Prize
 • powerball + 2 whiteballs OR 3 whiteballs   => 5th Prize
 • powerball OR powerball + 1 whiteball       => 6th Prize
-Print out the congratulations corresponding to each prize if there is a winner. If no winners are found for the Grand Prize, the Grand Prize will be increased by 6 times and other prizes will be incremented by the lowest prize in the whiteBall array. If there's a winner of any prize, return "Big congratulations to lucky winners!", otherwise, return "No winners found! The grand prize is now $*grandPrize*. Best of luck next time, future millionaires!".
-Note: After each 'match', all tickets will be no longer valid for next draws, so the 'Lottery' should be reset properly!*/
+Print out the congratulations corresponding to each prize if there is a winner. If no winners are found for the 
+Grand Prize, the Grand Prize will be increased by 6 times and other prizes will be incremented by the lowest prize 
+in the whiteBall array. If there's a winner of any prize, return "Big congratulations to lucky winners!", otherwise, 
+return "No winners found! The grand prize is now $*grandPrize*. Best of luck next time, future millionaires!".
+Note: After each 'match', all tickets will be no longer valid for next draws, so the 'Lottery' should be reset 
+properly!*/
 
 
 /*
-Declare a function, 'UniqueQueue', which takes in an array as an argument and returns an instance of a 'UniqueQueue' object when invoked with the 'new' keyword.
-'UniqueQueue' objects should function similarly to a queue, but they will only store UNIQUE values (no duplicates). Each value should be stored with an index representing its order in the queue.
-All UniqueQueue objects should contain their own 'length' property, which keeps track of the number of items they contain.
-When a UniqueQueue is first created, each array element should be enqueued, and the 'length' property updated accordingly. Duplicates in the initial array should be ignored.
+Declare a function, 'UniqueQueue', which takes in an array as an argument and returns an instance of a 'UniqueQueue' 
+object when invoked with the 'new' keyword.'UniqueQueue' objects should function similarly to a queue, but they will 
+only store UNIQUE values (no duplicates). Each value should be stored with an index representing its order in the 
+queue. All UniqueQueue objects should contain their own 'length' property, which keeps track of the number of items 
+they contain. When a UniqueQueue is first created, each array element should be enqueued, and the 'length' property 
+updated accordingly. Duplicates in the initial array should be ignored.
 
 Example:
 Creating a UniqueQueue from [1, 2, 3] --> { 0: 1, 1: 2, 2: 3, length: 3 }
@@ -301,13 +313,158 @@ Creating a UniqueQueue from [1, 1, 2] --> { 0: 1, 1: 2, length: 2 }
 */
 
 
-
-
-
 /*
-Declare a function, 'enqueue', which is accessible to ALL instances of 'UniqueQueue'. 'enqueue' should take in a single argument, and when invoked on a UniqueQueue instance, should add the argument to the end of the queue if it's not already present, increment the UniqueQueue's length property appropriately, and return the length of the queue.
+Declare a function, 'enqueue', which is accessible to ALL instances of 'UniqueQueue'. 'enqueue' should take 
+in a single argument, and when invoked on a UniqueQueue instance, should add the argument to the end of the queue if it's not already present, increment the UniqueQueue's length property appropriately, and return the length of the queue.
 */
 
 
 
+
+// Declare a function 'OrderedList', which takes in no arguments and returns an instance of an 'OrderedList' object when invoked with the 'new' keyword. OrderedList objects should function similarly to arrays - i.e. they will store values at numbered indexes, starting at 0. However, all elements are in sorted order.
+// All OrderedList objects should contain their own 'length' property, which keeps track of the number of items they contain. An OrderedList should also keep track of whether it is sorted in reverse order with a isReversed property. When an OrderedList is first created, it should have a length of 0 and an isReversed value of false.
+
+//input: none
+//output: objects 
+//{ 0: value, 1 : value, 2 : value, length : 0, isReversed : false }
+//use isReversed will keep track of whether object is reversed 
+//check whther object is in reverse order by checking if first index is 0
+
+function OrderedList() {
+  
+  this.length = 0;
+  this.isReversed = false;
+  
+}
+const list1 = new OrderedList;
+console.log(list1);  //{ 0: value, 1 : value, 2 : value, length : 0, isReversed : false }
+
+
+// - Task 1: Declare a function, 'add', which is accessible to ALL instances of 'OrderedList'. 'add' should take in a number as a single argument, and when invoked on an OrderedList instance, should add the number to that OrderedList in descending order if the list is not reversed, or ascending order if the list is reversed. Update the OrderedList's length property appropriately, and return the length of the OrderedList.
+
+//add takes single arg (number) and store it as values
+//if list isreversed = true, add number in descending order
+//if list isreversed = false, add in ascending order
+//check the isReversed prop
+//add key according to length prop value
+//add value and increment index and length
+//access object check if number at last index is greater or smaller using Object.values
+//return length prop
+
+
+OrderedList.prototype.add = function(num) {
+
+  
+  this[this.length] = num;
+  this.length++;
+  
+  const values = Object.values(this).slice(0, this.length);
+  
+  if(!this.isReversed) {
+    values.sort((a,b) => b-a);
+  } else {
+    values.sort((a,b) => a-b);
+  }
+  
+  for (let i = 0; i < values.length; i++) {
+    this[i] = values[i];
+  }
+  
+  return this.length;
+}
+
+console.log(list1.add(3)) // return object length
+console.log(list1.add(5)) // return object length
+console.log(list1) // { 0: 5, 1: 3, length : 0, isReversed : false }
+
+
+// - Task 2: Declare a function, 'reverse', which is accessible to ALL instances of 'OrderedList'. 'reverse' should take in no arguments, and when invoked on an OrderedList instance, should reverse the order of all elements in that OrderedList (except the 'length' property), and change the value of isReversed.
+
+
+
+/* 
+Declare a function 'NumberedList', which returns a new instance of a 'NumberedList' object when invoked with the `new` keyword.
+NumberedList objects should function similarly to arrays - i.e. they store values at number indexes, starting at 0. Any arguments passed into the 'NumberedList' constructor should be sequentially added to the NumberedList when it is instantiated.
+NumberedList objects should also contain a length property, which keeps track of the number of elements in the list.
+*/
+
+
+function NumberedList(...arg) {
+  this.length = 0;
+  console.log('arg: ', arg)
+
+}
+
+const newList = new NumberedList(1, 2, 3);
+// console.log()
+
+/* 
+A linked list is a collection of sequentially stored objects (called nodes). Each node must contain two properties: an associated value, and a reference to the next node in the list.
+Unlike in an array, nodes in a linked list are not accessible directly via index. 
+
+The only way to traverse the list is to iterate over each node, starting from the first (called the 'head'), using its 'next' property to access the one that follows.
+
+The last node in the list (called the 'tail') should have a 'next' property that is set to 'null', indicating that nothing follows it.
+
+***************      ***************      ***************       
+** value: 1 ***      ** value: 2 ***      ** value: 3 ***
+** next: --------->  ** next: --------->  ** next: --------->  NULL
+***************      ***************      ***************      
+
+Following these specifications, declare a constructor function 'ListNode' for a node in a linked list. It should take one argument, which will be assigned to that node's value.
+
+Next, declare a variable called 'linkedList', and assign it to a new ListNode instance with the value of your choosing.
+
+*/
+
+//node { value: arg, next: arg++}
+//not accesssible via index
+//head: first node, tail: last node
+//input: node's value
+//constructor func ListNode refers to one node, assigned to that node's value
+//linkedList = new ListNode instance
+
+function ListNode(value) {
+  this.value = value;
+  this.next = null;
+}
+const linkedList = new ListNode(1);
+
+console.log(linkedList); // { value: 1, next: null }
+
+
+// ListNode { value: 1, next: ListNode { value: 2, next: ListNode { value: 3, next: null } } }
+
+/* 
+Declare a method 'addToEnd', accessible to all instances of the ListNode object, that adds another node to the end of the list.
+'addToEnd' should take in one argument, representing the new node's value. It should cycle through however many nodes are currently in the list and add a new ListNode instance to the very end of the list.
+*/
+
+//input: value (new nodes value)
+//variable to represent currentNode = this
+//traverse instances until this.next === null
+//if this.next === null, next current instance inside this one
+//on each iteration reassign currentNode.next
+//create new instances inside method
+
+ListNode.prototype.addToEnd = function(value2) {
+  //variable to represent currentNode = this
+  let pointer = this
+//traverse instances until this.next === null
+  while (pointer.next !== null) {
+    //on each iteration reassign currentNode.next
+    pointer = pointer.next
+  }
+  //create new instances inside method
+  pointer.next = new ListNode(value2)
+  
+}
+
+linkedList.addToEnd(2);
+linkedList.addToEnd(3);
+
+console.log(linkedList)
+
+
+console.log(linkedList.addToEnd(2)) // ListNode { value: 1, next: ListNode { value: 2, next: null } }
 

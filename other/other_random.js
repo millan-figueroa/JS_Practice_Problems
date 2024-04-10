@@ -59,3 +59,9 @@ function splitStrings(string) {
 
     }
 }
+
+/* 
+Declare a function called 'capitalize', which takes in a string as an argument.
+If the string contains 5 or more characters, 'capitalize' should return that string with the first letter capitalized.
+If the string contains fewer than 5 characters, return a lowercase version of the entire string.
+*/

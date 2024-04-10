@@ -13,8 +13,8 @@ Note: Do not use any native JS methods, or loops.
 function countChar(str, target, i = 0, counter = 0){
 
     if(str[i] === undefined) return counter;
-console.log('value of i: ' + i)
-console.log('value of counter: ' + counter)
+console.log({i})
+console.log({counter})
     if(str[i] === target){
         counter + 1;
         return countChar(str,target, i + 1, counter)
@@ -51,3 +51,11 @@ NOTE: A non-missing string is a string with consecutive characters in the alphab
 Ex: findMissingChar('cdefgi'); → 'h'
 Ex: findMissingChar('abcde'); → -1 */
 
+/*
+Create a function "sumAllElements" that takes in two arguments (an array of numbers and a initial value). "sumAllElements" will return the sum of the elements in the array starting at the initial value.
+
+Example:
+sumAllElements([1,2,3,4], 10) -> 20
+
+Note: Do NOT use any native JS methods, or loops
+*/

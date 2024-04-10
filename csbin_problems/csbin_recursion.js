@@ -1,18 +1,28 @@
 
-/* Countdown (2/13 - 4:50 | 2/27 - 1:43 |)
+/* Countdown
 Create a recursive function countdown that accepts a positive integer n as an input 
 and logs every number from n (inclusive) to 0 (exclusive) to the console.
 */
 
-// To check if you've completed it, uncomment these console.logs!
+// function countdown(n) {
+
+//   console.log(n);
+//   if(n === 2) {
+//     return 1
+//   }
+
+//   return countdown(n - 1)
+
+// }
+
+// // To check if you've completed it, uncomment these console.logs!
 // console.log(countdown(5));
 // console.log(countdown(10));
 
 
 
-/* Sum (2/12 - 5min 30secs | 2/13 - 8:52 | 2/27 - 5:34)
+/* Sum 
 Create a recursive function sum that calculates the sum of an array of integers.
-
 */
 
 
@@ -21,9 +31,15 @@ Create a recursive function palindrome that accepts a string as an input and ret
 string is a palindrome (the string is the same forward and backwards). The input string may have 
 punctuation and symbols, but that should not affect whether the string is a palindrome.
 */
-console.log(palindrome("Anne, I vote more cars race Rome-to-Vienna")); //-> true
-console.log(palindrome("llama mall")); //-> true
-console.log(palindrome("jmoney")); //-> false
+//remove non-alphanumeric chars using replace method and regex /\W/g
+//compare string first and last index
+//slice off first and last chars
+//when string length reaches 0 return boolean
+
+
+// console.log(palindrome("Anne, I vote more cars race Rome-to-Vienna")); //-> true
+// console.log(palindrome("llama mall")); //-> true
+// console.log(palindrome("jmoney")); //-> false
 
 
 
