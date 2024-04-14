@@ -78,3 +78,46 @@ queueObject.enqueue(9); //length: 10
 
 console.log(queueObject); //{ 0 : 0, 1 : 1, 2 : 2, 3 : 3, 4 : 4, 5 : 5} 
 
+/* 
+Declare a function 'NumberedList', which returns a new instance of a 'NumberedList' object when invoked with the `new` keyword.
+NumberedList objects should function similarly to arrays - i.e. they store values at number indexes, starting at 0. Any arguments passed into the 'NumberedList' constructor should be sequentially added to the NumberedList when it is instantiated.
+NumberedList objects should also contain a length property, which keeps track of the number of elements in the list.
+
+Example:
+Creating a NumberedList from 'dog' --> { 0: 'dog', length: 1 }
+Creating a NumberedList from 'dog', 'bird', 'cat' --> { 0: 'dog', 1: 'bird', 2: 'cat', length: 3 }
+*/
+
+// input : 1 arg output: new instance of NumberedList 
+
+
+// declared a NumberedList FN
+const NumberedList = function (...args) {
+  // add length property to this
+  this.length = 0; 
+// use length property to add any number passed in args
+  	// iterate over args
+  for (let i = 0; i < args.length; i++) {
+  		// for each element 
+    this[i] = args[i]; 
+    // increment length
+    this.length += 1; 
+  }
+}; 
+
+const list = new NumberedList("dog", "cat", "horse", "duck"); 
+
+console.log(list); // { 0: 'dog', 1: 'bird', 2: 'cat', length: 3 }
+
+/* 
+Declare a function, 'reverse', that is accessible to ALL instances of the NumberedList object.
+
+'reverse' does not take in any arguments, and will return a new NumberedList instance, in which all elements of the original NumberedList it was called upon have been reversed.
+
+For example, calling 'reverse' on the following NumberedList: 
+  { 0: 'a', 1: 'b', 2: 'c', length: 3 } 
+should return a new NumberedList with the properties:
+  { 0: 'c', 1: 'b', 2: 'a', length: 3 }
+
+Note: this method should NOT modify the object it was called upon!
+*/
